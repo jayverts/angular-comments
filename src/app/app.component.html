@@ -1,4 +1,10 @@
 <h1>Comments</h1>
 <ul>
-    <li *ngFor="let comment of comments">{{comment}}</li>
+    <li *ngFor="let comment of comments">{{comment.message}} -{{comment.author}}</li>
 </ul>
+
+<form action="/app.component.html" method="push">
+ Message: <input type=“text” name=“message”><br>
+ Author: <input type=“text” name=“author”><br>
+ <button type=“submit” value="Add New Comment" ng-model="comments">Add Comment</button>
+ </form>
