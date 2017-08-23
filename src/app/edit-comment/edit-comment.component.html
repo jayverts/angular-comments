@@ -1,0 +1,7 @@
+<label *ngIf="editMode">Comment</label>
+<input *ngIf="editMode" [(ngModel)]="comment">
+<label *ngIf="editMode">Author</label>
+<input *ngIf="editMode" [(ngModel)]="author">
+
+<button class="waves-effect waves-light btn" (click)="editMode=true">Edit</button>
+<button class="waves-effect waves-light btn" (click)="save(compentId)">Save</button>

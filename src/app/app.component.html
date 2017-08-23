@@ -1,10 +1,11 @@
 <h1>Comments</h1>
-<ul>
-    <li *ngFor="let comment of comments">{{comment.message}} -{{comment.author}}</li>
-</ul>
+<app-new-comment></app-new-comment>
+<ul *ngFor="let comment of comments ; let position = index" [attr.data-index]="position">
+    <li>Comment: {{comment.title}}</li>
+	<ul>
+		<li>By: {{comment.author}}</li>
+	</ul>
+	<button class="waves-effect waves-light btn" type="button" (click)=deleteComment(position)>DELETE</button>
 
-<form action="/app.component.html" method="push">
- Message: <input type=“text” name=“message”><br>
- Author: <input type=“text” name=“author”><br>
- <button type=“submit” value="Add New Comment" ng-model="comments">Add Comment</button>
- </form>
+	<app-edit-comment [compentId]=position></app-edit-comment>
+</ul>

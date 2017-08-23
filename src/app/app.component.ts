@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import {CommentService} from './comment.service'
 
 @Component({
   selector: 'app-root',
@@ -6,9 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  comments = [
-    {message: 'First Comment!', author: 'Jim Jones'},
-    {message: 'Nice Work!', author: 'Harry Truman'},
-    {message: 'I would also like to congratulate you!', author: "Xzibit"}
-  ]
+  position;
+  comments;
+ 
+  deleteComment(position){
+    //alert(position);
+    this.commentService.comments.splice(position,1);
+  }
+
+  // editComment(position){
+  //   this.commentService.comments[position].title = ;
+  //   this.commentService.comments[position].author =  ;
+  // }
+
+  constructor(public commentService: CommentService) { }
+
+  ngOnInit() {
+    this.comments = this.commentService.getComments();
+    };
 }
