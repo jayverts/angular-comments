@@ -5,7 +5,7 @@
 	<ul>
 		<li>By: {{comment.author}}</li>
 	</ul>
-	<button class="waves-effect waves-light btn" type="button" (click)=deleteComment(position)>DELETE</button>
+	<button(click)=deleteComment(position)>DELETE</button>
 
 	<app-edit-comment [compentId]=position></app-edit-comment>
 </ul>
